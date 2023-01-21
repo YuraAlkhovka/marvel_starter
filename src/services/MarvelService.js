@@ -46,7 +46,7 @@ const useMarvelService = () => {
     const _transformComics = (comics) => {
         return {
             id: comics.id,
-            name: comics.name,
+            title: comics.title,
             description: comics.description ? `${comics.description.slice(0, 210)}...` : 'There is no description for this character',
             pageCount: comics.pageCount ? `${comics.pageCount} p.` : 'No information about the number of pages',
             thumbnail: comics.thumbnail.path + '.' + comics.thumbnail.extension,
@@ -54,7 +54,16 @@ const useMarvelService = () => {
             price: comics.prices.price ? `${comics.prices.price}$` : 'not available'
         }
     }
-    return {loading, error, clearError, getAllCharacters, getCharacter, getCharacterByName, getAllComics, getComic}
+    return {
+		loading,
+		error,
+		clearError,
+		getAllCharacters,
+		getCharacterByName,
+		getCharacter,
+		getAllComics,
+		getComic,
+	};
 }
 
 export default useMarvelService;
